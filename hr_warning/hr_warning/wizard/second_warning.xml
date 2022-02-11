@@ -1,0 +1,62 @@
+<odoo>
+	<data>
+		<record id ="second_warning_wizard" model="ir.ui.view">
+			<field name="name">second.warning.wizard</field>
+			<field name="model">second_warning.wizard</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+						<group>
+							<field name ="start_date"/>
+					    </group>
+						<group>
+							<field name ="end_date"/>
+					    </group>
+						
+					</group>
+					<footer>
+						<button string="Warning" type="object" name="update_second"/>
+						<button string="Cancel" special="cancel" class="btn btn-secondary"/>
+					</footer>
+					
+				</form>
+		
+			</field>
+		</record>
+		<record id="second_warning_wizard_acton" model="ir.actions.act_window">
+			<field name="name">second warning action</field>
+			<field name="res_model">second_warning.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+		<record id ="third_warning_wizard" model="ir.ui.view">
+			<field name="name">third.warning.wizard</field>
+			<field name="model">third_warning.wizard</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+						<group>
+							<field name ="start_date"/>
+					    </group>
+						<group>
+							<field name ="end_date"/>
+					    </group>
+						
+					</group>
+					<footer>
+						<button string="Warning" type="object" name="update_third"/>
+						<button string="Cancel" special="cancel" class="btn btn-secondary"/>
+					</footer>
+					
+				</form>
+		
+			</field>
+		</record>
+		<record id="third_warning_wizard_acton" model="ir.actions.act_window">
+			<field name="name">third warning action</field>
+			<field name="res_model">third_warning.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+	</data>
+</odoo>
