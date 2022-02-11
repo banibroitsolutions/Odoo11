@@ -11,14 +11,14 @@
 
     'author': "Banibro IT Solutions Pvt Ltd.",
     'website': "http://www.banibro.com",
-	'license': 'OPL-1',
-    'support': 'support@banibro.com',
+	'license': "AGPL-3",
+	'email': "support@banibro.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category':'hr',
-    'version': '13.0.1',
+    'version': '13.0',
 
     # any module necessary for this one to work correctly
     'depends': ['base','hr','hr_resignation'],
