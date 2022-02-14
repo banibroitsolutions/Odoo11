@@ -37,7 +37,10 @@
     'demo': [
         'demo/demo.xml',
     ],
-    'images': ['hr_warning/static/description/icon.png'],  
+    'images': [
+        'hr_warning/static/description/icon.png',
+        'hr_warning/static/description/banner.png',
+    ], 
     'installable': True,
     'auto_install': False,
 	'price': 18,
