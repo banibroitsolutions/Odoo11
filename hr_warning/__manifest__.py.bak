@@ -3,15 +3,14 @@
     'name': "hr_warning",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        This service helps to Manage Violation Warnings and Termination details of respective Employees. Regular Reminders as well as Follow-ups can be set.""",
 
     'description': """
         Long description of module's purpose
     """,
 
     'author': "Banibro IT Solutions Pvt Ltd.",
-    'website': "http://www.banibro.com",
+    'website': "https://banibro.com/odoo-erp/",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
