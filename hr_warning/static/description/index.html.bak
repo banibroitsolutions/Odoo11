@@ -167,7 +167,7 @@
             </div>           
         </div>
     </section>
-	  <section class="row" style="padding: 2rem 3rem 1rem;margin:0px; ">
+	  <section class="row" style="padding: 2rem 3rem 1rem;margin:0px; margin-left:5rem">
 	   <div class="col-lg-12 d-flex flex-column justify-content-center align-items-center">
                	<h4 class="oe_slogan" style="font-size:30px; color:#000000; font-family:LatoOpen Sans !important"><b>Industries</b></h4>
                
@@ -367,4 +367,14 @@
 		<br></br>
 		<br></br>	
        
+	   <table style="border:1px solid black;">
+	   <tr>
+	   <td colspan="2">
+	   
+	   </td>
+	   <td colspan="2">
+	   
+	   </td>
+	   </tr>
+	   </table>
 </html>
