@@ -38,7 +38,7 @@
         'demo/demo.xml',
     ],
     'images': [
-        'hr_warning/static/description/banner.png',
+        'static/description/banner.png',
     ], 
     'installable': True,
     'auto_install': False,
