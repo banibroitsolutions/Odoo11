@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+<record id="br_interview_sequence_no" model="ir.sequence">
+   <field name="name">BR Interview Sequence No</field>
+   <field name="code">br.interview</field>
+   <field name="active">TRUE</field>
+   <field name="prefix">%(year)s/%(month)s/</field>
+   <field name="padding">3</field>
+   <field name="number_next">1</field>
+   <field name="number_increment">1</field>
+</record>
+
+<!-- <menuitem name="br_inter" -->
+            <!-- id="menu_main_pm" -->
+         
+            <!-- web_icon="project,static/description/icon.png" -->
+            <!-- sequence="50"/> -->
+
+        <record id="br_interview_tree" model="ir.ui.view">
+            <field name="name">br.interview.tree</field>
+            <field name="model">br.interview</field>
+            <field name="arch" type="xml">
+                <tree string="Interview">
+                    <field name="name"/>
+                    <field name="applicant" />
+                    <field name="schedule_date"/>
+                    <field name="degree" />
+                    <field name="applied_job"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_br_interview_form" model="ir.ui.view">
+            <field name="name">br.interview.form</field>
+            <field name="model">br.interview</field>
+            <field name="arch" type="xml">
+            <form string="Interview">
+            <header>
+              <button string="Start" name="interview_start" type="object" class="oe_highlight" attrs="{'invisible':[('status','!=','new')]}"/>
+              <button string="Stop" name="interview_stop" type="object" class="oe_highlight" attrs="{'invisible':[('status','!=','start')]}"/>
+              <button string="Draft" name="interview_draft" type="object" class="oe_highlight" attrs="{'invisible':[('status','in',['new','cancel','done'])]}"/>
+              <button string="Cancel" name="interview_cancelled" type="object" class="oe_highlight" attrs="{'invisible':[('status','!=','new')]}"/>
+              <field name="status" widget="statusbar"/>
+            </header>
+            <sheet>
+              <div class="oe_title">
+                 <h1><field name="name" readonly="1"/></h1>
+              </div>
+              <group>
+                <group>
+                   <field name="applicant" attrs="{'readonly':[('status','not in',['new','start'])]}"/>
+                   <field name="schedule_date" attrs="{'readonly':[('status','not in',['new','start'])]}"/>
+                   <field name="degree" attrs="{'readonly':[('status','not in',['new','start'])]}"/>
+                </group>
+                <group>
+                   <field name="interviewer_ids" widget="many2many_tags" attrs="{'readonly':[('status','not in',['new'])]}"/>
+                   <field name="applied_job" readonly="1"/>
+                </group>
+              </group>
+                <field name="review_ids" attrs="{'readonly':[('status','not in',['start'])]}">
+                  <tree editable="bottom">
+                      <field name="rev_type" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                      <field name="rating"/>
+                      <field name="interviewer_ids" invisible="1"/>
+                      <field name="interviewer" domain="[('id','in',interviewer_ids)]" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                  </tree>
+                </field>
+               <group>
+                   <group>
+                       <field name="review_summ" attrs="{'readonly':[('status','not in',['start'])]}"/>
+                   </group>
+                   <group>
+                     <div class="oe_right">
+                       <label style="font-weight: bold;" for="performance"/><field name="performance"/>
+                     </div>
+                   </group>
+               </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+            </form>
+            </field>
+        </record>
+
+        <record id="br_interview_act" model="ir.actions.act_window">
+            <field name="name">Interview</field>
+            <field name="res_model">br.interview</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+      <menuitem action="br_interview_act" 
+	  web_icon="br_interview_process,static/description/icon.png" 
+	  id="br_interview_menu"  
+	  parent="hr_recruitment.menu_crm_case_categ0_act_job" 
+	  sequence="5" />
+	  
+        <record id="br_interview_review_type_tree" model="ir.ui.view">
+            <field name="name">br.interview.review.type.tree</field>
+            <field name="model">br.review.type</field>
+            <field name="arch" type="xml">
+                <tree string="Interview Review Type" editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <record id="br_interview_review_type_act" model="ir.actions.act_window">
+            <field name="name">Review Type</field>
+            <field name="res_model">br.review.type</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem action="br_interview_review_type_act" id="br_interview_review_type_menu" parent="hr_recruitment.menu_hr_recruitment_configuration" 
+		 sequence="5"/>
+        <record id="view_interview_cr" model="ir.ui.view">
+            <field name="name">view.interview.cr</field>
+            <field name="model">br.interview</field>
+            <field name="arch" type="xml">
+            <form string="Interview">
+            <sheet>
+              <group>
+                <group>
+                 <field name="application" invisible="1"/>
+                 <field name="applicant"/>
+                 <field name="schedule_date"/>
+                </group>
+                <group>
+                 <field name="interviewer_ids" widget="many2many_tags" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                </group>
+              </group>
+
+            </sheet>
+           <footer>
+               <button name="action_done_cr" string="Confirm" type="object" class="oe_highlight"/>
+               <button string="Cancel" class="btn btn-default" special="cancel"/>
+           </footer>
+            </form>
+            </field>
+        </record>
+
+        <record id="interview_application_form_inh" model="ir.ui.view">
+            <field name="name">interview.applications.form.inh</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button string="Interview" name="create_interview" type="object" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                     <button name="action_applications_interview" class="oe_stat_button" icon="fa-pencil" type="object" attrs="{'invisible': [('interview_count', '=', 0)]}">
+                        <field name="interview_count" widget="statinfo" string="Interviews"/>
+                     </button>
+                </xpath>
+                <xpath expr="//field[@name='job_id']" position="before">
+                    <field name="interview_st" attrs="{'invisible':[('interview_count','=',0)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_interview_user,interview.user,model_br_interview,hr_recruitment.group_hr_recruitment_user,1,1,1,0
+access_interview_manager,interview.manager,model_br_interview,hr_recruitment.group_hr_recruitment_manager,1,1,1,1
+access_interview_review_manager,interview.review.manager,model_br_interview_review,hr_recruitment.group_hr_recruitment_manager,1,1,1,1
+access_interview_review_user,interview.review.user,model_br_interview_review,hr_recruitment.group_hr_recruitment_user,1,1,1,0
+access_review_type_manager,review.type.manager,model_br_review_type,hr_recruitment.group_hr_recruitment_manager,1,1,1,1
+access_review_type_user,review.type.user,model_br_review_type,hr_recruitment.group_hr_recruitment_user,1,1,1,0

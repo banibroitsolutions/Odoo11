@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+
+    <report id="br_interview_report_id"
+        model="br.interview"
+        string="Interview Feedback"
+        report_type="qweb-pdf"
+        name="br_interview_process.br_interview_template"
+        file="feedback_report"
+        print_report_name="'Interview Feedback'"
+        menu="True"/>
+
+<template id="br_interview_template">
+    <t t-call="web.html_container">
+    <t t-call="web.external_layout">
+	   <t t-foreach="docs" t-as="o">
+          <div class="page">
+            <center><h2>Interview Feedback</h2></center>
+                    <div id="informations" class="row mt32 mb32">
+                        <div class="col-auto mw-100 mb-2" t-if="o.applied_job" name="applied_job">
+                            <strong>Applied Job:</strong>
+                            <p class="m-0" t-field="o.applied_job.name"/>
+                        </div>
+                        <div class="col-auto mw-100 mb-2" t-if="o.applicant" name="applicant">
+                            <strong>Candidate Name:</strong>
+                            <p class="m-0" t-field="o.applicant"/>
+                        </div>
+                        <div class="col-auto mw-100 mb-2" t-if="o.schedule_date" name="schedule_date">
+                            <strong>Date of Interview:</strong>
+                            <p class="m-0" t-field="o.schedule_date"/>
+                        </div>
+                    </div>
+                    <table class="table table-sm o_main_table">
+                        <thead>
+                            <tr>
+                                <th class="text-left"><span>Review Type</span></th>
+                                <th class="text-left"><span>Rating</span></th>
+                                <th class="text-right"><span>Interviewer</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.review_ids" t-as="rev">
+                                <tr t-att-class="'bg-200 font-weight-bold o_line_section'">
+                                     <td><span t-field="rev.rev_type.name"/></td>
+                                     <td class="text-left">
+                                         <span t-field="rev.rating"/>
+                                     </td>
+                                     <td class="text-right">
+                                         <span class="text-nowrap" t-field="rev.interviewer.name"/>
+                                     </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+              <strong>Further Action and Recommendation:</strong>
+              <p t-esc="o.review_summ"/><br/>
+              <strong>Comment:</strong>
+          </div>
+	   </t>
+     </t>
+    </t>
+</template>
+
+     <record id="paperformat_br_interview" model="report.paperformat">
+            <field name="name">BR Interview</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">42</field>
+            <field name="margin_bottom">28</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">40</field>
+            <field name="dpi">90</field>
+            <field eval="[(4,ref('br_interview_process.br_interview_report_id'))]" name="report_ids"/>
+        </record>
+
+    </data>
+</odoo>
