@@ -3,7 +3,7 @@
     'version': "13.0",
     'author': 'Banibro IT Solutions Pvt Ltd.',
     'company': 'Banibro IT Solutions Pvt Ltd.',
-    'website': 'https://www.banibro.com',
+    'website': 'https://banibro.com/odoo-erp/',
     'summary': '''Interview Request creation for Applicant''',
     'description': '''interview request creation for applicant''',
     'category': "hr",
