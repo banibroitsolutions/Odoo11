@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+<record id="br_offer_letter_sequence_no" model="ir.sequence">
+   <field name="name">BR Offer Letter Sequence No</field>
+   <field name="code">br.offer.letter</field>
+   <field name="active">TRUE</field>
+   <field name="prefix">JOB/OFFER/</field>
+   <field name="padding">6</field>
+   <field name="number_next">1</field>
+   <field name="number_increment">1</field>
+</record>
+
+        <record id="br_offer_letter_tree" model="ir.ui.view">
+            <field name="name">br.offer.letter.tree</field>
+            <field name="model">br.offer</field>
+            <field name="arch" type="xml">
+                <tree string="Offer Letter">
+                    <field name="name"/>
+                    <field name="employee" />
+                    <field name="application"/>
+                    <field name="offer_date"/>
+                    <field name="company_id" />
+                    <field name="currency_id" invisible="1"/>
+                    <field name="monthly_sal" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_br_offer_letter_form" model="ir.ui.view">
+            <field name="name">br.offer.letter.form</field>
+            <field name="model">br.offer</field>
+            <field name="arch" type="xml">
+            <form string="Offer Letter">
+            <header>
+              <button string="In Progress" name="in_progress" type="object" class="oe_highlight" attrs="{'invisible':[('status','!=','new')]}"/>
+              <button string="Give To Employee" name="give_to" type="object" class="oe_highlight" attrs="{'invisible':[('status','!=','in_progress')]}"/>
+              <button string="Done" name="get_done" type="object" class="oe_highlight" attrs="{'invisible':[('status','!=','given_to')]}"/>
+              <field name="status" widget="statusbar"/>
+            </header>
+            <sheet>
+              <div class="oe_title">
+                 <h1><field name="name" readonly="1"/></h1>
+              </div>
+              <group>
+                <group>
+                 <field name="currency_id" invisible="1"/>
+                 <field name="application" attrs="{'readonly':[('status','not in',['new','in_progress'])]}"/>
+                 <field name="monthly_sal" required="1" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'readonly':[('status','not in',['new','in_progress'])]}"/>
+                 <field name="company_id" required="1" options="{'no_quick_create': True, 'no_create_edit' : True}" attrs="{'readonly':[('status','not in',['new','in_progress'])]}"/>
+                </group>
+                <group>
+                 <field name="employee" attrs="{'readonly':[('status','not in',['new','in_progress'])]}"/>
+                 <field name="offer_date" attrs="{'readonly':[('status','not in',['new','in_progress'])]}"/>
+                 <field name="prepaid_by" readonly="1"/>
+                 <field name="prepaid_date" readonly="1"/>
+                </group>
+              </group>
+                <notebook>
+                    <page string="Body">
+                      <field name="msg_body" widget="html" attrs="{'readonly':[('status','not in',['new','in_progress'])]}"/>
+                    </page>
+                </notebook>
+            </sheet>
+
+            </form>
+            </field>
+        </record>
+
+        <record id="br_offer_letter_act" model="ir.actions.act_window">
+            <field name="name">Offer Letter</field>
+            <field name="res_model">br.offer</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+      <menuitem action="br_offer_letter_act" id="br_offer_leter_menu" parent="hr_recruitment.menu_crm_case_categ0_act_job" sequence="5"/>
+
+        <record id="view_offer_letter_cr" model="ir.ui.view">
+            <field name="name">view.offer.letter.cr</field>
+            <field name="model">br.offer</field>
+            <field name="arch" type="xml">
+            <form string="Offer Letter">
+            <sheet>
+              <group>
+                <group>
+                 <field name="application" invisible="1"/>
+                 <field name="currency_id" invisible="1"/>
+                 <field name="employee"/>
+                 <field name="company_id" required="1" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                </group>
+                <group>
+                 <field name="monthly_sal" required="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </group>
+              </group>
+
+            </sheet>
+           <footer>
+               <button name="action_done_cr" string="Confirm" type="object" class="oe_highlight"/>
+               <button string="Cancel" class="btn btn-default" special="cancel"/>
+           </footer>
+            </form>
+            </field>
+        </record>
+
+        <record id="offer_letter_application_form_inh" model="ir.ui.view">
+            <field name="name">offer.letter.applications.form.inh</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='create_employee_from_applicant']" position="replace">
+                    <button string="Create Employee" name="create_employee_from_applicant" type="object" class="oe_highlight" attrs="{'invisible': ['|',('emp_id', '!=', False),('is_offered', '=', False)]}" confirm="Are you sure?"/>
+                    <button string="Create Offer Letter" name="create_offer_ltr" type="object" class="oe_highlight" attrs="{'invisible': ['|',('offer_letter_id', '!=', False),('is_offered', '!=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='job_id']" position="after">
+                    <field name="offer_letter_id"/>
+                    <field name="is_offered" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

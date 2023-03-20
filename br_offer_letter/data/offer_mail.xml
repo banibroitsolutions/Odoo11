@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+
+    <report id="br_offer_letter_report_id"
+        model="br.offer"
+        string="Print Offer"
+        report_type="qweb-pdf"
+        name="br_offer_letter.br_offer_letter_template"
+        file="offer_letter"
+        print_report_name="'Offer Letter'"
+        menu="True"/>
+
+<template id="br_offer_letter_template">
+<t t-name="br_offer_letter.br_offer_letter_template">
+    <t t-call="web.html_container">
+       <!--div class="header">
+            <img src="/br_offer_letter/static/bani_logo.png" style="padding-left:16px;height:76px;width:166px;"/>
+       </div-->
+    <t t-call="web.external_layout">
+	   <t t-foreach="docs" t-as="o">
+          <div class="page">
+            <center><h2>OFFER LETTER</h2></center>
+            <div style="width: 100%;">
+              <div style="width: 50%; float: left;">
+                Dear <span t-esc="o.employee"/>,
+              </div>
+              <div style="margin-left: 50%;text-align:right;">
+                Date: <span t-esc="o.offer_date"/>
+              </div>
+            </div>
+            <span t-field="o.msg_body"/>
+          </div>
+	 </t>
+        </t>
+    </t>
+</t>
+</template>
+
+     <record id="paperformat_br_offer_letter" model="report.paperformat">
+            <field name="name">BR Offer Letter</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">42</field>
+            <field name="margin_bottom">28</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">40</field>
+            <field name="dpi">90</field>
+            <field eval="[(4,ref('br_offer_letter.br_offer_letter_report_id'))]" name="report_ids"/>
+        </record>
+
+        <record id="br_offer_letter_mail" model="mail.template">
+            <field name="name">Offer Letter...!!</field>
+            <field name="email_from">"Banibro IT Solutions" ${object.prepaid_by.login}</field>
+            <field name="email_to">${object.application.email_from}</field>
+            <field name="subject">Offer Letter</field>
+            <field name="model_id" ref="br_offer_letter.model_br_offer"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+                <div class="page">
+                    <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                        <p>Dear ${object.employee},</p>
+                        <p syle="padding-left:30px;">we have enclosed the offer letter with this mail. we are expecting your reply as soon as possible.</p>
+                    </div>
+                </div>
+            ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>
