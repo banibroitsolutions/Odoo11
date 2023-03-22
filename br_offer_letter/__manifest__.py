@@ -5,7 +5,7 @@
     'currency': 'USD',
     'author': 'Banibro IT Solutions Pvt Ltd.',
     'company': 'Banibro IT Solutions Pvt Ltd.',
-    'website': 'https://banibro.com/odoo-erp/',
+    'website': 'https://banibro.com/erp-software-company-in-chennai/',
     'summary': '''Offer letter creation for short listed employee''',
     'description': '''Offer letter creation for short listed employee''',
     'category': "hr",
