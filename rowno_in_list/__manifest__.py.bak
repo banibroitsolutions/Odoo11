@@ -13,7 +13,7 @@
     'data': [
              'views/listview_templates.xml',
              ],
-    'images': ['static/description/banner.png',
+    'images': ['static/description/rowno_tree-banner.png',
                'static/description/icon.png',],
 
     'license': 'AGPL-3',
