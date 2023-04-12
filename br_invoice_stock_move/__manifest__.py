@@ -1,0 +1,20 @@
+
+{
+    'name': "Stock Picking From Invoice",
+    'version': '13.0.1.0.0',
+    'summary': """Stock Picking From Customer/Supplier Invoice""",
+    'description': """This module makes it possible to pick up stock from a customer or supplier invoice.""",
+    'author': 'Banibro IT Solutions Pvt Ltd.',
+    'company': 'Banibro IT Solutions Pvt Ltd.',
+    'website': 'https://banibro.com',
+    'category': 'Accounting',
+    'depends': ['base', 'account', 'stock', 'payment'],
+    'data': ['views/invoice_stock_move_view.xml'],
+    'images': ['static/description/banner.png',
+               'static/description/icon.png', ],
+    'license': 'AGPL-3',
+    'email': "support@banibro.com",
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+}
