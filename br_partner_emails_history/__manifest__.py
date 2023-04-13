@@ -1,0 +1,20 @@
+
+{
+    'name': "Partner Email and SMS History",
+    'version': '16.0.1.0.0',
+    'summary': """ Send/Received Emails and SMS History From Partner Form""",
+    'description': """Send/Received Emails and SMS History From Partner Form""",
+    'author': 'Banibro IT Solutions Pvt Ltd.',
+    'company': 'Banibro IT Solutions Pvt Ltd.',
+    'website': 'https://banibro.com',
+    'category': 'Tools',
+    'depends': ['contacts', 'sms'],
+    'data': ['views/partner_emails_history_view.xml'],
+    'images': ['static/description/banner.png',
+                'static/description/icon.png',],
+    'license': 'AGPL-3',
+    'email': "support@banibro.com",
+    'installable': True,
+    'auto_install': False,
+    'application': False,
+}
