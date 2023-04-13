@@ -8,7 +8,7 @@ Configuration
 
 Company
 -------
-* `BaniBri It Solutions Pvt Limited <https://banibro.com/>`__
+* `BaniBro It Solutions Pvt Limited <https://banibro.com/>`__
 
 Contacts
 --------
