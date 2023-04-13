@@ -10,18 +10,13 @@ Configuration
 
 Company
 -------
-* `Cybrosys Techno Solutions <https://cybrosys.com/>`__
+* `BaniBro IT Solutions Pvt Limited <https://banibro.com/>`__
 
-Credits
--------
-* Developers:	Jesni Banu @ cybrosys
-		Niyas Raphy@cybrosys
-    		Version 13: Nimisha Murali@cybrosys
 
 Contacts
 --------
-* Mail Contact : odoo@cybrosys.com
-* Website : https://cybrosys.com
+*  Mail Contact : info@banibro.com
+* Website : https://banibro.com/
 
 Bug Tracker
 -----------
@@ -29,12 +24,11 @@ Bugs are tracked on GitHub Issues. In case of trouble, please check there if you
 
 Maintainer
 ==========
-.. image:: https://cybrosys.com/images/logo.png
-   :target: https://cybrosys.com
+   :target: https://banibro.com/
 
-This module is maintained by Cybrosys Technologies.
+This module is maintained by BaniBro Solutions.
 
-For support and more information, please visit `Our Website <https://cybrosys.com/>`__
+For support and more information, please visit `Our Website <https://banibro.com/>`__
 
 Further information
 ===================
