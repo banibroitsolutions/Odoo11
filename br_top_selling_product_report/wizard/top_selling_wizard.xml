@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <odoo>
     <record id="top_selling_wizard_report" model="ir.ui.view">
         <field name="name">Top/Least Selling Products</field>
@@ -7,20 +8,18 @@
             <form string="Stock Report">
                 <group>
                     <group string="Company">
-                        <field name="company" widget="many2many_tags"/>
-                    </group>
+                    <field name="company" widget="many2many_tags"/>
+                   </group>
                     <group string="Warehouses">
-                        <field name="warehouse" widget="many2many_tags"/>
-                    </group>
+                    <field name="warehouse" widget="many2many_tags"/>
+                   </group>
+                   <group>
+                    <field name="date"/>
+                    <field name="period"/>
+                   </group>
                     <group>
-                        <field name="date"/>
-                        <field name="period"/>
-                    </group>
-                    <group>
-                        <field name="from_date"
-                               attrs="{'invisible': [('date', '!=', 'select_period')],'required':[('date','=','select_period')]}"/>
-                        <field name="to_date"
-                               attrs="{'invisible': [('date', '!=', 'select_period')],'required':[('date','=','select_period')]}"/>
+                        <field name="from_date" attrs="{'invisible': [('date', '!=', 'select_period')],'required':[('date','=','select_period')]}"/>
+                        <field name="to_date" attrs="{'invisible': [('date', '!=', 'select_period')],'required':[('date','=','select_period')]}"/>
                     </group>
                 </group>
                 <group>
@@ -47,5 +46,5 @@
               parent="sale.menu_sale_report"
               action="top_selling_wizard"
               groups="sales_team.group_sale_manager"
-    />
+              />
 </odoo>

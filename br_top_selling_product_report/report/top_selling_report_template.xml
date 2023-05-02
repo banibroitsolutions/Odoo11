@@ -7,10 +7,10 @@
                     <div class="oe_structure"/>
                     <center>
                         <t t-if="other['least']">
-                        <h2 style="font-size:35px;"><b>Least Selling Products</b></h2>
+                        <h2 style="color: #000;">Least Selling Products</h2>
                         </t>
                         <t t-if="not other['least']">
-                            <h2 style="font-size:35px;"><b>Top Selling Products</b></h2>
+                        <h2 style="color: #000;">Top Selling Products</h2>
                         </t>
                     </center>
                     <div class="oe_structure"/>
@@ -59,7 +59,7 @@
         <div class="header o_boxed_header">
         <div class="row mb8">
         <div class="col-xs-6">
-            <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+            <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)"/>
         </div>
         <div class="col-xs-6 text-right mb4">
          <h4 class="mt0" t-field="company.report_header"/>
