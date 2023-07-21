@@ -8,7 +8,7 @@
     'category': 'Tools',
    'author': 'Banibro IT Solutions Pvt Ltd.',
     'company': 'Banibro IT Solutions Pvt Ltd.',
-    'website': 'https://banibro.com',
+    'website': 'https://banibro.com/odoo-for-manufacturing-company/',
     'depends': ['base', 'web', 'product','account'],
     'data': [
         'report/product_label_template.xml',
