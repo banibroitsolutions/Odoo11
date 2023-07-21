@@ -6,7 +6,7 @@
     'description': 'Top Selling Products,Fast Moving Products,Most Selling Products,Top Growing Products,Least Selling Products,',
     'author': 'Banibro IT Solutions Pvt Ltd.',
     'company': 'Banibro IT Solutions Pvt Ltd.',
-    'website': 'https://banibro.com',
+    'website': 'https://banibro.com/odoo-for-manufacturing-company/',
     'depends': ['base','sale_management','stock','sale'],
     'category': 'Sale',
     'demo': [],
