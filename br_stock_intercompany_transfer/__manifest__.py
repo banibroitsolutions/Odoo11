@@ -9,7 +9,7 @@
     'category': 'Warehouse',
     'author': 'Banibro IT Solutions Pvt Ltd.',
     'company': 'Banibro IT Solutions Pvt Ltd.',
-    'website': 'https://banibro.com',
+    'website': 'https://banibro.com/odoo-for-manufacturing-company/',
     'depends': ['stock', 'account'],
     'data': [
         'views/res_company_view.xml',
