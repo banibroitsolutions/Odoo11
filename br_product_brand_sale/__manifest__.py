@@ -8,7 +8,7 @@
     'description': 'Product Brand in Sales,brand,sale, odoo16',
     'author': 'Banibro IT Solutions Pvt Ltd.',
     'company': 'Banibro IT Solutions Pvt Ltd.',
-    'website': 'https://banibro.com',
+    'website': 'https://banibro.com/odoo-for-manufacturing-company/',
     'images': ['static/description/banner.png',
                'static/description/icon.png',],
     'depends': ['sale_management'],
