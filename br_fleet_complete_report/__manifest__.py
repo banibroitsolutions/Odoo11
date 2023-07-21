@@ -8,7 +8,7 @@
     'description': 'Create complete PDF report for Fleet',
     'author': 'Banibro IT Solutions Pvt Ltd.',
     'company': 'Banibro IT Solutions Pvt Ltd.',
-    'website': 'https://banibro.com',
+    'website': 'https://banibro.com/odoo-for-manufacturing-company/',
     'images': ['static/description/banner.png'],
     'depends': ['base', 'fleet'],
     'data': [
