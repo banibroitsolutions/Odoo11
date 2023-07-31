@@ -8,7 +8,7 @@
     'description': 'Product Brand in eCommerce',
     'author': 'Banibro IT Solutions Pvt Ltd.',
     'company': 'Banibro IT Solutions Pvt Ltd.',
-    'website': 'https://banibro.com',
+    'website': 'https://banibro.com/odoo-demo/',
     'images': ['static/description/banner.png'],
     'depends': ['br_product_brand_sale','website_sale'],
     'data': [
